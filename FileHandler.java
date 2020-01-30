@@ -1,5 +1,15 @@
 public class FileHandler{
-  public static getBufferObject{
-    
+
+
+  public static BufferedReader getReader(String filePath){
+
+
+    return new BufferedReader(fileReader);
   }
+  
+  public static void closeReader(BufferedReader reader){
+
+  }
+
 }
+
