@@ -7,8 +7,24 @@ public class FileHandler{
    */
   public static BufferedReader getBufferReader(String filePath){
 
+    try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader =
+                new FileReader(fileName);
 
-    return new BufferedReader(fileReader);
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader =
+                new BufferedReader(fileReader);
+
+        }
+        catch(FileNotFoundException ex) {
+            throw FileNotFoundException ex;
+        }
+        catch(IOException ex) {
+            throw IOException ex;
+        }
+
+    return bufferedReader;
   }
 
   /**
