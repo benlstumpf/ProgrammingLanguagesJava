@@ -1,7 +1,21 @@
+
+
+
 public class FileHandler{
 
   /**
+   * Create a Scanner from a file location string
+   * @param  filePath file location path
+   * @return          Scanner needed to read a file
+   */
+  public static Scanner gatScanner(String filePath){
+
+  }
+
+
+  /**
    * Create a bufferreader and prequeisit objects from a file location string
+   * I am planning on using a Scanner after conversations
    * @param  filePath file location path
    * @return          BufferReader needed to read a file
    */
