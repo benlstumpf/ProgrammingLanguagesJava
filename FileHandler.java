@@ -13,7 +13,6 @@ public class FileHandler{
     return scanner;
   }
 
-
   /**
    * Create a bufferreader and prequeisit objects from a file location string
    * I am planning on using a Scanner after conversations
