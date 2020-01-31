@@ -8,8 +8,9 @@ public class FileHandler{
    * @param  filePath file location path
    * @return          Scanner needed to read a file
    */
-  public static Scanner gatScanner(String filePath){
-
+  public static Scanner getScanner(String filePath){
+    Scanner scanner = new Scanner(filePath);
+    return scanner;
   }
 
 
