@@ -14,7 +14,9 @@ Class CLInterface {
 		Hashmap hashmap = new Hashmap();
 		hashmap = WordCounting.countwords(scanner, hashmap);
 
-		
+		List completeList =
+		List topFive = String[5];
+		List bottomFive = String[5];
 	}
 
 }
