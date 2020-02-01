@@ -3,9 +3,8 @@
 
 public class SelectMethodTesting {
   public static void main (String[] args){
-
-  }
-  public static boolean testScanner(String fileName){
-
+    Hashmap hashmap = new Hashmap();
+    hashmap.put("one", 1);
+    hashmap.get("one");
   }
 }
