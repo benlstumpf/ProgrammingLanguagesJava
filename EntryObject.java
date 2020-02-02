@@ -1,3 +1,4 @@
+import java.util.Comparator;
 
 public class EntryObject{
   private String key;
@@ -22,5 +23,17 @@ public class EntryObject{
 
   public void setKey (String s){
     key = s;
+  }
+
+  public Integer compareTo (EntryObject toCompare){
+
+    int compareQuantity = ((EntryObject) toCompare).getValue();
+
+		//ascending order
+		return this.value - compareQuantity;
+  }
+
+  public String toString (){
+    return key + ", " + value;
   }
 }
