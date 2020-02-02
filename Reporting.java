@@ -11,4 +11,9 @@ public class Reporting {
 
     return EntryObject
   }
+  private arraysToObjects (EntryObject[] returningList, Strings[] keyArray, Integer[] valuesArray){
+    for(int i = 0; i <keylist.length(); i++){
+      sortedList[i] =  new EntryObject(keyArray[i], valuesArray[i]);
+    }
+  }
 }
