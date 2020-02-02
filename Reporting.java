@@ -9,7 +9,7 @@ public class Reporting {
 
 
 
-    return EntryObject
+    return returningList;
   }
   private arraysToObjects (EntryObject[] returningList, Strings[] keyArray, Integer[] valuesArray){
     for(int i = 0; i <keylist.length(); i++){
