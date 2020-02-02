@@ -3,9 +3,9 @@
 
 public class Reporting {
   public static EntryObject[] mapToSortedList (HashMap map){
-    EntryObject[] sortedList = EntryObject[map.size()];
-    EntryObject[] unsortList = EntryObject[map.size()];
-    Object[] keyList = map.keySet().toArray();
+    EntryObject[] returningList = EntryObject[map.size()];
+    Strings[] keyArray = map.keySet().toArray(); // returns an array of keys
+    Integer[] valuesArray = map.values().toArray(); // returns an array of values
 
 
 
