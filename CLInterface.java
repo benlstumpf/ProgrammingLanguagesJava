@@ -7,7 +7,7 @@ o	Accepts file as argument when running application
 
 import java.util.Hashmap;
 
-Class CLInterface {
+ public class CLInterface {
 	public static void main (String[] args){
 		//get file in scanner so file can be read
 		String filePath = args[0];
@@ -22,7 +22,7 @@ Class CLInterface {
 		//EntryObject[] topFive = Reporting.getTopFive(completeList);
 		//EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
 
-		Reporting.printArray()
+		Reporting.printArray(completeList);
 	}
 
 }
