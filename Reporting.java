@@ -1,10 +1,11 @@
 import java.io.BufferedWriter;
+import java.util.HashMap;
 
 public class Reporting {
   public static EntryObject[] mapToList (HashMap map){
-    EntryObject[] returningArray = EntryObject[map.size()];
-    String[] keyArray = map.keySet().toArray(); // returns an array of keys
-    Integer[] valuesArray = map.values().toArray(); // returns an array of values
+    EntryObject[] returningArray = new EntryObject[map.size()];
+    String[] keyArray = (String[]) map.keySet().toArray(); // returns an array of keys
+    Integer[] valuesArray = (Integer[]) map.values().toArray(); // returns an array of values
     return returningArray;
   }
   public static void arraysToObjects (EntryObject[] returningList, String[] keyArray, Integer[] valuesArray){

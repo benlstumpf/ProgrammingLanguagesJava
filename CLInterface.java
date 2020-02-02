@@ -1,11 +1,6 @@
-/*
-•	CMInterface Class
-o	Main: Initializes objects and counting algorithm.
-o	Accepts file as argument when running application
 
- */
-
-import java.util.Hashmap;
+import java.util.HashMap;
+import java.util.Scanner;
 
  public class CLInterface {
 	public static void main (String[] args){
@@ -14,8 +9,8 @@ import java.util.Hashmap;
 		Scanner scanner = FileHandler.getScanner(filePath);
 
 		//Make HashMap to store words
-		Hashmap hashmap = new Hashmap();
-		hashmap = WordCounting.countwords(scanner, hashmap);
+		HashMap hashmap = new HashMap();
+		hashmap = WordCounting.countWords(scanner, hashmap);
 
 		//Convert hashmap from map to array
 		EntryObject[] completeList = Reporting.mapToList(hashmap);

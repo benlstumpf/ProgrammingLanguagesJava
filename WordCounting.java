@@ -24,7 +24,7 @@ o	Counting words
 
 public class WordCounting{
 
-  public static HashMap countwords (Scanner scan){
+  public static HashMap countWords (Scanner scan, HashMap hashmap){
     HashMap map = new HashMap();
     Integer tempInt = 0;
 
