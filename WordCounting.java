@@ -21,7 +21,27 @@ o	Counting words
 
 public class WordCounting{
 
+  public static HashMap countwords (Scanner scanner){
+    HashMap map = new HashMap();
+    Integer tempInt = 0;
 
+    while(Scanner.hasNext()){
+      tempInt = 0;
+      String key = scanner.next();
+
+      //TODO clean string
+
+      if(map.containsKey(key)){
+        tempInt = map.get(key);
+        tempInt = tempInt + 1;
+        map.put(key,tempInt);
+      }
+      else{
+        map.put(key, 1);
+      }
+    }
+    return map;
+  }
 
 
 
