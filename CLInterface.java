@@ -15,8 +15,8 @@ Class CLInterface {
 		hashmap = WordCounting.countwords(scanner, hashmap);
 
 		EntryObject[] completeList = Reporting.mapToSortedList(hashmap);
-		EntryObject[] topFive = EntryObject[5];
-		EntryObject[] bottomFive = EntryObject[5];
+		EntryObject[] topFive = Reporting.getTopFive(completeList);
+		EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
 
 	}
 
