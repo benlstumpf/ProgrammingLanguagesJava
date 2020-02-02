@@ -31,7 +31,8 @@ public class WordCounting{
     while(scan.hasNext()){
       tempInt = 0;
       String key = scan.next();
-
+      //testing
+      System.out.println("testing" + key);
       //TODO clean string
 
       if(map.containsKey(key)){
