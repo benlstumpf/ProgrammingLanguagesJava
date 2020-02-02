@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
 /*
 •	Counting Class
 o	Reporting
@@ -21,18 +24,18 @@ o	Counting words
 
 public class WordCounting{
 
-  public static HashMap countwords (Scanner scanner){
+  public static HashMap countwords (Scanner scan){
     HashMap map = new HashMap();
     Integer tempInt = 0;
 
-    while(Scanner.hasNext()){
+    while(scan.hasNext()){
       tempInt = 0;
-      String key = scanner.next();
+      String key = scan.next();
 
       //TODO clean string
 
       if(map.containsKey(key)){
-        tempInt = map.get(key);
+        tempInt = (Integer) map.get(key);
         tempInt = tempInt + 1;
         map.put(key,tempInt);
       }
