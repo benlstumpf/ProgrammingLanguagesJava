@@ -4,7 +4,11 @@ public class EntryObject{
   private String key;
   private Integer value = 0;
 
-
+  /**
+   * [EntryObject description]
+   * @param s [description]
+   * @param i [description]
+   */
   public EntryObject (String s, Integer i){
       value = i;
       key = s;
@@ -12,27 +16,19 @@ public class EntryObject{
   public Integer getValue (){
     return value;
   }
-
   public void setValue (Integer i){
     value = i;
   }
-
   public String getKey (){
     return key;
   }
-
   public void setKey (String s){
     key = s;
   }
-
-  public Integer compareTo (EntryObject toCompare){
-
-    int compareQuantity = ((EntryObject) toCompare).getValue();
-
-		//ascending order
-		return this.value - compareQuantity;
-  }
-
+  /**
+   * [toString description]
+   * @return [description]
+   */
   public String toString (){
     return key + ", " + value;
   }

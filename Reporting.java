@@ -2,6 +2,11 @@ import java.io.BufferedWriter;
 import java.util.HashMap;
 
 public class Reporting {
+  /**
+   * [mapToList description]
+   * @param  map [description]
+   * @return     [description]
+   */
   public static EntryObject[] mapToList (HashMap map){
     EntryObject[] returningArray = new EntryObject[map.size()];
     Object[] keyArray = map.keySet().toArray(); // returns an array of keys
@@ -9,22 +14,41 @@ public class Reporting {
     arraysToObjects (returningArray, keyArray, valuesArray);
     return returningArray;
   }
+  /**
+   * [arraysToObjects description]
+   * @param returningList [description]
+   * @param keyArray      [description]
+   * @param valuesArray   [description]
+   */
   private static void arraysToObjects (EntryObject[] returningList, Object[] keyArray, Object[] valuesArray){
     for(int i = 0; i < keyArray.length; i++){
     	returningList[i] =  new EntryObject((String)keyArray[i], (Integer)valuesArray[i]);
     }
   }
+  /**
+   * [arrayToFile description]
+   * @param array  [description]
+   * @param writer [description]
+   */
   public static void arrayToFile (EntryObject[] array, BufferedWriter writer){
     for (int i = 0; i < array.length; i++){
       FileHandler.printRecord(writer, array[i]);
     }
   }
+  /**
+   * [printArray description]
+   * @param array [description]
+   */
   public static void printArray(EntryObject[] array){
     for(int i = 0; i < array.length; i++){
       System.out.println(array[i].toString());
     }
     System.out.println(array.length);
 	}
+  /**
+   * [sortArray description]
+   * @param array [description]
+   */
   public static void sortArray (EntryObject[] array){
       //bubble sort code is short so I choose it for this reason
       int arrayLength = array.length;
@@ -41,19 +65,29 @@ public class Reporting {
                  }
          }
   }
-public static EntryObject[] getBottomFive(EntryObject[] completeList) {
-  EntryObject[] bottomFive = new EntryObject[5];
-  for(int i = 0; i < 5; i++){
+  /**
+   * [getBottomFive description]
+   * @param  completeList [description]
+   * @return              [description]
+   */
+  public static EntryObject[] getBottomFive(EntryObject[] completeList) {
+    EntryObject[] bottomFive = new EntryObject[5];
+    for(int i = 0; i < 5; i++){
       bottomFive[i] = completeList[(completeList.length-1)-i];
+    }
+    return bottomFive;
   }
-  return bottomFive;
-}
-public static EntryObject[] getTopFive(EntryObject[] completeList) {
-  EntryObject[] topFive = new EntryObject[5];
-  for(int i = 0; i < 5; i++){
+  /**
+   * [getTopFive description]
+   * @param  completeList [description]
+   * @return              [description]
+   */
+  public static EntryObject[] getTopFive(EntryObject[] completeList) {
+    EntryObject[] topFive = new EntryObject[5];
+    for(int i = 0; i < 5; i++){
       topFive[i] = completeList[i];
+    }
+    return topFive;
   }
-  return topFive;
-}
 
 }

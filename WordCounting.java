@@ -23,7 +23,12 @@ o	Counting words
  */
 
 public class WordCounting{
-
+    /**
+     * [countWords description]
+     * @param  scan    [description]
+     * @param  hashmap [description]
+     * @return         [description]
+     */
   public static HashMap countWords (Scanner scan, HashMap hashmap){
     HashMap map = new HashMap();
     Integer tempInt = 0;

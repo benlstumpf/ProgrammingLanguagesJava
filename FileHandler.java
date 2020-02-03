@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class FileHandler{
 
   /**
@@ -23,25 +24,33 @@ public class FileHandler{
     }
     return scanner;
   }
+  /**
+   * [getBufferWriter description]
+   * @param  fileName [description]
+   * @return          [description]
+   */
   public static BufferedWriter getBufferWriter(String fileName){
     //This was borrowed from https://stackoverflow.com/questions/36931603/writing-inside-a-text-file-using-scanner-class
 	  BufferedWriter writer = null;
 	  try {
 		  writer = new BufferedWriter(new FileWriter(fileName));
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return writer;
+	   } catch (IOException e) {
+		     e.printStackTrace();
+	   }
+	    return writer;
   }
+  /**
+   * [printRecord description]
+   * @param writer [description]
+   * @param entry  [description]
+   */
   public static void printRecord(BufferedWriter writer, EntryObject entry) {
     try {
 		writer.write(entry.getKey() + ", " + entry.getValue());
 		writer.newLine();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
+	 } catch (IOException e) {
 		e.printStackTrace();
-	}
+	 }
 
   }
 

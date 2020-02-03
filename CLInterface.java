@@ -3,6 +3,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
  public class CLInterface {
+	   /**
+	    * [main description]
+	    * @param args [description]
+	    */
 	public static void main (String[] args){
 		//get file in scanner so file can be read
 		String filePath = args[0];

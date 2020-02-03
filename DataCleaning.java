@@ -17,6 +17,11 @@ o	Count word:
  */
 
 public class DataCleaning {
+    /**
+     * [cleanWord description]
+     * @param  word [description]
+     * @return      [description]
+     */
   public static String cleanWord (String word){
     //punctuation
     word =  word.replaceAll("\\p{Punct}", "");
