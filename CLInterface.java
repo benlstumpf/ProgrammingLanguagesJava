@@ -16,7 +16,7 @@ import java.util.Scanner;
 		EntryObject[] completeList = Reporting.mapToList(hashmap);
 		//EntryObject[] topFive = Reporting.getTopFive(completeList);
 		//EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
-
+		Reporting.sortArray(completeList);
 		Reporting.printArray(completeList);
 	}
 
