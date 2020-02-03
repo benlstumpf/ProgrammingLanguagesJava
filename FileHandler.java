@@ -1,5 +1,8 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FileHandler{
@@ -22,11 +25,24 @@ public class FileHandler{
   }
   public static BufferedWriter getBufferWriter(String fileName){
     //This was borrowed from https://stackoverflow.com/questions/36931603/writing-inside-a-text-file-using-scanner-class
-    return new BufferedWriter(new FileWriter(fileName));
+	BufferedWriter writer = null;
+	  try {
+		  writer = new BufferedWriter(new FileWriter(fileName));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return writer;
   }
-  public static void printRecord(BufferedWriter writer, String key, Integer value) {
-    writer.write(key + ", " + value);
-    writer.newLine();
+  public static void printRecord(BufferedWriter writer, EntryObject entry) {
+    try {
+		writer.write(entry.getKey() + ", " + entry.getValue());
+		writer.newLine();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    
   }
 
 }
