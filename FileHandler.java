@@ -20,10 +20,13 @@ public class FileHandler{
   }
     return scanner;
   }
-
-  public static void printRecord() {
-	// TODO Auto-generated method stub
-
+  public static BufferedWriter getBufferWriter(String fileName){
+    //This was borrowed from https://stackoverflow.com/questions/36931603/writing-inside-a-text-file-using-scanner-class
+    return new BufferedWriter(new FileWriter(fileName));
+  }
+  public static void printRecord(BufferedWriter writer, String key, Integer value) {
+    writer.write(key + ", " + value);
+    writer.newLine();
   }
 
 }
