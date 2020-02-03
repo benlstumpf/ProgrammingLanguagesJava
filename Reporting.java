@@ -16,7 +16,7 @@ public class Reporting {
   }
   public static void arrayToFile (EntryObject[] array, BufferedWriter writer){
     for (int i = 0; i < array.length; i++){
-      FileHandler.printRecord();
+      FileHandler.printRecord(writer, array[i]);
     }
   }
   public static void printArray(EntryObject[] array){
