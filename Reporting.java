@@ -22,7 +22,11 @@ public class Reporting {
   public static void printArray(EntryObject[] array){
     for(int i = 0; i < array.length; i++){
       System.out.println(array[i].toString());
-
     }
+    System.out.println(array.length);
 	}
+  public static EntryObject[] sortArray (){
+    return null;
+  }
+
 }
