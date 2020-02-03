@@ -32,16 +32,18 @@ public class WordCounting{
       tempInt = 0;
       String key = scan.next();
       //testing
-      System.out.println("testing" + key);
+
       //TODO clean string
 
       if(map.containsKey(key)){
         tempInt = (Integer) map.get(key);
         tempInt = tempInt + 1;
         map.put(key,tempInt);
+
       }
       else{
         map.put(key, 1);
+        System.out.println("WordCountingtesting" + key);
       }
     }
     return map;
