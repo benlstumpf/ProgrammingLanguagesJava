@@ -41,5 +41,19 @@ public class Reporting {
                  }
          }
   }
+public static EntryObject[] getBottomFive(EntryObject[] completeList) {
+  EntryObject[] bottomFive = new EntryObject[5];
+  for(int i = 0; i < 5; i++){
+      bottomFive[i] = completeList[(completeList.length-1)-i];
+  }
+  return bottomFive;
+}
+public static EntryObject[] getTopFive(EntryObject[] completeList) {
+  EntryObject[] topFive = new EntryObject[5];
+  for(int i = 0; i < 5; i++){
+      topFive[i] = completeList[i];
+  }
+  return topFive;
+}
 
 }
