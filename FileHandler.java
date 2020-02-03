@@ -17,15 +17,15 @@ public class FileHandler{
 	  try{
       File file = new File(filePath);
      scanner = new Scanner(file);
-  }
-  catch (FileNotFoundException e) {
+    }
+    catch (FileNotFoundException e) {
       e.printStackTrace();
-  }
+    }
     return scanner;
   }
   public static BufferedWriter getBufferWriter(String fileName){
     //This was borrowed from https://stackoverflow.com/questions/36931603/writing-inside-a-text-file-using-scanner-class
-	BufferedWriter writer = null;
+	  BufferedWriter writer = null;
 	  try {
 		  writer = new BufferedWriter(new FileWriter(fileName));
 	} catch (IOException e) {
@@ -42,7 +42,7 @@ public class FileHandler{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    
+
   }
 
 }
