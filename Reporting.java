@@ -25,8 +25,21 @@ public class Reporting {
     }
     System.out.println(array.length);
 	}
-  public static EntryObject[] sortArray (){
-    return null;
+  public static void sortArray (EntryObject[] array){
+      //bubble sort code is short so I choose it for this reason
+      int arrayLength = array.length;
+        EntryObject temp = null;
+         for(int i=0; i < arrayLength; i++){
+                 for(int j=1; j < (arrayLength-i); j++){
+                          if(array[j-1].getValue() < array[j].getValue()){
+                                 //swap elements
+                                 temp = array[j-1];
+                                 array[j-1] = array[j];
+                                 array[j] = temp;
+                         }
+
+                 }
+         }
   }
 
 }
