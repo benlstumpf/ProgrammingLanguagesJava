@@ -43,7 +43,7 @@ public class WordCounting{
       }
       else{
         map.put(key, 1);
-        System.out.println("WordCountingtesting" + key);
+        //System.out.println("WordCountingtesting" + key);
       }
     }
     return map;
