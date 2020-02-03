@@ -14,10 +14,16 @@ import java.util.Scanner;
 
 		//Convert hashmap from map to array
 		EntryObject[] completeList = Reporting.mapToList(hashmap);
-		//EntryObject[] topFive = Reporting.getTopFive(completeList);
-		//EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
+
 		Reporting.sortArray(completeList);
-		Reporting.printArray(completeList);
+
+		EntryObject[] topFive = Reporting.getTopFive(completeList);
+		EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
+
+		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(args[1]));
+
+		Reporting.printArray(topFive);
+		Reporting.printArray(bottomFive);
 	}
 
 }
