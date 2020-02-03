@@ -4,13 +4,14 @@ import java.util.HashMap;
 public class Reporting {
   public static EntryObject[] mapToList (HashMap map){
     EntryObject[] returningArray = new EntryObject[map.size()];
-    String[] keyArray = (String[]) map.keySet().toArray(); // returns an array of keys
-    Integer[] valuesArray = (Integer[]) map.values().toArray(); // returns an array of values
+    Object[] keyArray = map.keySet().toArray(); // returns an array of keys
+    Object[] valuesArray = map.values().toArray(); // returns an array of values
+    arraysToObjects (returningArray, keyArray, valuesArray);
     return returningArray;
   }
-  public static void arraysToObjects (EntryObject[] returningList, String[] keyArray, Integer[] valuesArray){
+  private static void arraysToObjects (EntryObject[] returningList, Object[] keyArray, Object[] valuesArray){
     for(int i = 0; i < keyArray.length; i++){
-    	returningList[i] =  new EntryObject(keyArray[i], valuesArray[i]);
+    	returningList[i] =  new EntryObject((String)keyArray[i], (Integer)valuesArray[i]);
     }
   }
   public static void arrayToFile (EntryObject[] array, BufferedWriter writer){
@@ -21,6 +22,7 @@ public class Reporting {
   public static void printArray(EntryObject[] array){
     for(int i = 0; i < array.length; i++){
       System.out.println(array[i].toString());
+
     }
 	}
 }
