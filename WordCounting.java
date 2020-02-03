@@ -34,12 +34,12 @@ public class WordCounting{
       //testing
 
       //TODO clean string
+      key = DataCleaning.cleanWord(key);
 
       if(map.containsKey(key)){
         tempInt = (Integer) map.get(key);
         tempInt = tempInt + 1;
         map.put(key,tempInt);
-
       }
       else{
         map.put(key, 1);

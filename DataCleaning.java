@@ -19,7 +19,7 @@ o	Count word:
 public class DataCleaning {
   public static String cleanWord (String word){
     //end of sentance puncutation
-    word = word.replaceAll(\p{Punct}, "");
+    word = word.replaceAll("\\p{Punct}", "");
   }
 
 
