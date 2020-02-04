@@ -35,17 +35,7 @@ public class Reporting {
       FileHandler.printRecord(writer, array[i]);
     }
   }
-  /**
-   * [printArray description]
-   * @param array [description]
-   */
-  public static void printArray(EntryObject[] array){
-    for(int i = 0; i < array.length; i++){
-      System.out.println(array[i].toString());
-    }
-    System.out.println(array.length);
-	}
-  /**
+    /**
    * [sortArray description]
    * @param array [description]
    */

@@ -26,8 +26,18 @@ import java.util.Scanner;
 
 		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(args[1]));
 
-		Reporting.printArray(topFive);
-		Reporting.printArray(bottomFive);
+		printArray(topFive);
+		printArray(bottomFive);
+	}
+  /**
+   * [printArray description]
+   * @param array [description]
+   */
+  public static void printArray(EntryObject[] array){
+    for(int i = 0; i < array.length; i++){
+      System.out.println(array[i].toString());
+    }
+    //System.out.println(array.length);
 	}
 
 }
