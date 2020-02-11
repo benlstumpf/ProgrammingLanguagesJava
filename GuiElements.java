@@ -12,6 +12,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 class GuiElements extends JFrame {
 
+  private int distanceBetweenInputAndOutputVerticaly = 10;
+  private int dataEntryRowHeight = 30;
+  private int fileLocationButtonLength = 140;
+  private int fileChooserButtonDistanceFromLeftEdge = 10;
+  private int fileLocationFieldLength = 500;
+  private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromEdge + fileLocationButtonLength;
+  private int fileChooseInputElementsDistanceFromTopEdge = 80;
+  private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + dataEntryRowHeight;
+
   private JButton inputFileChooserButton = new JButton("Pick Input File");
   private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
   private JTextField inputFileLocationField = new JTextField(40);
@@ -23,16 +32,16 @@ class GuiElements extends JFrame {
       this.getContentPane().setLayout(null);
       this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
 
-      this.inputFileChooserButton.setBounds(10,80,130,30);
+      this.inputFileChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationButtonLength,dataEntryRowHeight);
       this.getContentPane().add(inputFileChooserButton);
 
-      this.inputFileLocationField.setBounds(150,80,100,30);
+      this.inputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationFieldLength,dataEntryRowHeight);
       this.getContentPane().add(inputFileLocationField);
 
-      this.outputFileLocationChooserButton.setBounds(10,120,130,30);
+      this.outputFileLocationChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationButtonLength,dataEntryRowHeight);
       this.getContentPane().add(outputFileLocationChooserButton);
 
-      this.outputFileLocationField.setBounds(150,120,100,30);
+      this.outputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationFieldLength,dataEntryRowHeight);
       this.getContentPane().add(outputFileLocationField);
   }
 }
