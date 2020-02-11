@@ -26,11 +26,13 @@ class GuiElements extends JFrame {
       this.inputFileChooserButton.setBounds(10,80,130,30);
       this.getContentPane().add(inputFileChooserButton);
 
-
+      this.inputFileLocationField.setBounds(150,80,100,30);
+      this.getContentPane().add(inputFileLocationField);
 
       this.outputFileLocationChooserButton.setBounds(10,120,130,30);
       this.getContentPane().add(outputFileLocationChooserButton);
 
-
+      this.outputFileLocationField.setBounds(150,120,100,30);
+      this.getContentPane().add(outputFileLocationField);
   }
 }
