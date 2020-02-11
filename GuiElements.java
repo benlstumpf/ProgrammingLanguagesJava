@@ -13,7 +13,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 class GuiElements extends JFrame {
   public GuiElements() {
       this.setTitle("Word Counting Application");
-      this.setBounds( 200, 300, 400, 300);
+      this.setBounds(200,300,600,600);
       this.getContentPane().setLayout(null);
       this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
   }
