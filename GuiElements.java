@@ -14,21 +14,21 @@ class GuiElements extends JFrame {
 
   private int distanceBetweenInputAndOutputVerticaly = 10;
   private int dataEntryRowHeight = 30;
-  private int fileLocationButtonLength = 140;
+  private int fileLocationButtonLength = 200;
   private int fileChooserButtonDistanceFromLeftEdge = 10;
   private int fileLocationFieldLength = 400;
   private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
-  private int fileChooseInputElementsDistanceFromTopEdge = 80;
+  private int fileChooseInputElementsDistanceFromTopEdge = 30;
   private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + dataEntryRowHeight;
 
-  private JButton inputFileChooserButton = new JButton("Pick Input File");
+  private JButton inputFileChooserButton = new JButton("Pick Input File Location");
   private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
   private JTextField inputFileLocationField = new JTextField(40);
   private JTextField outputFileLocationField = new JTextField(40);
 
   public GuiElements() {
       this.setTitle("Word Counting Application");
-      this.setBounds(200,300,600,600);
+      this.setBounds(200,300,650,600);
       this.getContentPane().setLayout(null);
       this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
 
