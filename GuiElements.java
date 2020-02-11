@@ -26,6 +26,9 @@ class GuiElements extends JFrame {
   private JTextField inputFileLocationField = new JTextField(40);
   private JTextField outputFileLocationField = new JTextField(40);
 
+  private JLabel fahrLabel = new JLabel( "Total Word Count:");
+  private JLabel fahrLabel = new JLabel( "Unique Word Count:");
+
   public GuiElements() {
       this.setTitle("Word Counting Application");
       this.setBounds(200,300,650,600);
@@ -43,5 +46,7 @@ class GuiElements extends JFrame {
 
       this.outputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationFieldLength,dataEntryRowHeight);
       this.getContentPane().add(outputFileLocationField);
+
+
   }
 }
