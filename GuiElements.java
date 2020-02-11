@@ -13,6 +13,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 class GuiElements extends JFrame {
 
   private JButton inputFileChooserButton = new JButton("Pick Input File");
+  private JButton outputFileChooserButton = new JButton("Pick Output File Location");
 
   public GuiElements() {
       this.setTitle("Word Counting Application");
@@ -22,5 +23,8 @@ class GuiElements extends JFrame {
 
       this.inputFileChooserButton.setBounds(10, 80, 130, 30);
       this.getContentPane().add(inputFileChooserButton);
+
+      this.outputFileChooserButton.setBounds(10, 120, 130, 30);
+      this.getContentPane().add(outputFileChooserButton);
   }
 }
