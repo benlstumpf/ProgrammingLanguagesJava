@@ -42,6 +42,8 @@ class GuiElements extends JFrame {
   private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
   private JLabel uniqueWordCountLabel = new JLabel( "Unique Word Count:");
 
+  private String
+
   public GuiElements() {
       this.setTitle("Word Counting Application");
       this.setBounds(200,300,windowSizeHorisontal,windowSizeVertical);
@@ -66,6 +68,19 @@ class GuiElements extends JFrame {
       this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( uniqueWordCountLabel);
 
+
+  }
+  private String fileButtonHasBeenPushed() {
+      JFileChooser fileChooser = new JFileChooser();
+      chooser.setFileFilter( new FileNameExtensionFilter("TEXT FILES", "txt", "text"));
+      int chooserSuccess = fileChooser.showOpenDialog(null);
+      if( chooserSuccess == JFileChooser.APPROVE_OPTION) {
+          File chosenFile = fileChooser.getSelectedFile();
+          return chosenFile.getAbsolutePath());
+      }
+      else {
+          System.out.println("You hit cancel");
+      }
 
   }
 }
