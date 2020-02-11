@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-class GuiElements extends JFrame implements ActionListener{
+class GuiElements extends JFrame {
   public GuiElements() {
       this.setTitle("Word Counting Application");
       this.setBounds( 200, 300, 400, 300);
