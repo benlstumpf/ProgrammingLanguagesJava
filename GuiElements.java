@@ -15,6 +15,7 @@ class GuiElements extends JFrame {
   private int windowSizeHorisontal = 650;
   private int windowSizeVertical = 600;
 
+
   private int distanceBetweenInputAndOutputVerticaly = 10;
   private int dataEntryRowHeight = 30;
   private int fileLocationButtonLength = 200;
@@ -22,18 +23,24 @@ class GuiElements extends JFrame {
   private int fileLocationFieldLength = 400;
   private int fileChooseInputElementsDistanceFromTopEdge = 30;
 
+
   private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
   private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + dataEntryRowHeight;
 
-  private int totalWordCountReportLabelVerticalStart =
+
+  private int wordCountLabelLength = 130;
+  private int totalWordCountReportLabelVerticalStart = 60 + dataEntryRowHeight + fileChooseOutputElementsDistanceFromTopEdge;
+  private int totalWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) - (wordCountLabelLength/2); //left center - half label size
+  private int totalUniqueWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) + (windowSizeHorisontal/2) - (wordCountLabelLength/2);
+
 
   private JButton inputFileChooserButton = new JButton("Pick Input File Location");
   private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
   private JTextField inputFileLocationField = new JTextField(40);
   private JTextField outputFileLocationField = new JTextField(40);
 
-  private JLabel fahrLabel = new JLabel( "Total Word Count:");
-  private JLabel fahrLabel = new JLabel( "Unique Word Count:");
+  private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
+  private JLabel uniqueWordCountLabel = new JLabel( "Unique Word Count:");
 
   public GuiElements() {
       this.setTitle("Word Counting Application");
@@ -53,10 +60,10 @@ class GuiElements extends JFrame {
       this.outputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationFieldLength,dataEntryRowHeight);
       this.getContentPane().add(outputFileLocationField);
 
-      this.fahrLabel.setBounds(10,20,100,30);
-      this.getContentPane().add( fahrLabel);
+      this.totalWordCountlabel.setBounds(totalWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,30);
+      this.getContentPane().add( totalWordCountlabel);
 
-      this.celLabel.setBounds(10,60,100,30);
-      this.getContentPane().add( celLabel);
+      this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,30);
+      this.getContentPane().add( uniqueWordCountLabel);
   }
 }
