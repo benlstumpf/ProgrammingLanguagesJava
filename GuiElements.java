@@ -16,8 +16,8 @@ class GuiElements extends JFrame {
   private int dataEntryRowHeight = 30;
   private int fileLocationButtonLength = 140;
   private int fileChooserButtonDistanceFromLeftEdge = 10;
-  private int fileLocationFieldLength = 500;
-  private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromEdge + fileLocationButtonLength;
+  private int fileLocationFieldLength = 400;
+  private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
   private int fileChooseInputElementsDistanceFromTopEdge = 80;
   private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + dataEntryRowHeight;
 
