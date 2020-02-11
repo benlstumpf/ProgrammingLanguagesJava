@@ -11,6 +11,9 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 class GuiElements extends JFrame {
+
+  private JButton inputFileChooserButton = new JButton("Pick Input File");
+
   public GuiElements() {
       this.setTitle("Word Counting Application");
       this.setBounds(200,300,600,600);
