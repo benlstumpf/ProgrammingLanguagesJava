@@ -19,5 +19,8 @@ class GuiElements extends JFrame {
       this.setBounds(200,300,600,600);
       this.getContentPane().setLayout(null);
       this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
+
+      this.inputFileChooserButton.setBounds(10, 80, 100, 30);
+      this.getContentPane().add(inputFileChooserButton);
   }
 }
