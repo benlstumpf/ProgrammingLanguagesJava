@@ -42,7 +42,8 @@ class GuiElements extends JFrame {
   private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
   private JLabel uniqueWordCountLabel = new JLabel( "Unique Word Count:");
 
-  private String
+  private String inputFileLocation = "";
+  private String outputFileLocation = "";
 
   public GuiElements() {
       this.setTitle("Word Counting Application");
@@ -52,12 +53,14 @@ class GuiElements extends JFrame {
 
       this.inputFileChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
       this.getContentPane().add(inputFileChooserButton);
+      this.inputFileChooserButton.addActionListener(this);
 
       this.inputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationFieldLength,defaultTextSpaceHieght);
       this.getContentPane().add(inputFileLocationField);
 
       this.outputFileLocationChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
       this.getContentPane().add(outputFileLocationChooserButton);
+      this.outputFileLocationChooserButton.addActionListener(this);
 
       this.outputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationFieldLength,defaultTextSpaceHieght);
       this.getContentPane().add(outputFileLocationField);
@@ -72,14 +75,25 @@ class GuiElements extends JFrame {
   }
   private String fileButtonHasBeenPushed() {
       JFileChooser fileChooser = new JFileChooser();
-      chooser.setFileFilter( new FileNameExtensionFilter("TEXT FILES", "txt", "text"));
+      fileChooser.setFileFilter( new FileNameExtensionFilter("TEXT FILES", "txt", "text"));
       int chooserSuccess = fileChooser.showOpenDialog(null);
       if( chooserSuccess == JFileChooser.APPROVE_OPTION) {
           File chosenFile = fileChooser.getSelectedFile();
-          return chosenFile.getAbsolutePath());
+          return chosenFile.getAbsolutePath();
       }
       else {
-          System.out.println("You hit cancel");
+          return "";
+      }
+
+  }
+  @Override
+  public void actionPerformed( ActionEvent e) {
+      System.out.println("The action event is " + e);
+      if( e.getActionCommand().equals("Convert")) {
+          this.fileButtonHasBeenPushed();
+      }
+      else if ( e.getActionCommand().equals("Which File?")) {
+          this.fileButtonHasBeenPushed();
       }
 
   }
