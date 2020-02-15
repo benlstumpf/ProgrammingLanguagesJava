@@ -24,13 +24,17 @@ class GuiElements extends JFrame implements ActionListener {
   private int fileChooseInputElementsDistanceFromTopEdge = 30;
 
 
+  //TODO document what this equation means and where the math came from
   private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
+  //TODO document what this equation means and where the math came from
   private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + defaultTextSpaceHieght;
 
 
   private int wordCountLabelLength = 130;
+  //TODO document what this equation means and where the math came from
   private int totalWordCountReportLabelVerticalStart = 60 + defaultTextSpaceHieght + fileChooseOutputElementsDistanceFromTopEdge;
   private int totalWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) - (wordCountLabelLength/2); //left center - half label size
+  //TODO document what this equation means and where the math came from
   private int totalUniqueWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) + (windowSizeHorisontal/2) - (wordCountLabelLength/2);
 
 
@@ -44,6 +48,9 @@ class GuiElements extends JFrame implements ActionListener {
 
   private String inputFileLocation = "";
   private String outputFileLocation = "";
+
+  private JTextField[] topFiveWordLabels = new JTextField[5];
+  private JTextField[] bottomFiveWordLabels = new JTextField[5];
 
   //TODO place this button
   private JButton countWordsButton = new JButton("Count Words");
@@ -91,11 +98,26 @@ class GuiElements extends JFrame implements ActionListener {
   }
 
   private void countButtonHasBeenPushed(){
+    Scanner scanner = FileHandler.getScanner(inputFileLocation);
 
+		//Make HashMap to store words
+		HashMap hashmap = new HashMap();
+		hashmap = WordCounting.countWords(scanner, hashmap);
+
+		//Convert hashmap from map to array
+		EntryObject[] completeList = Reporting.mapToList(hashmap);
+
+		Reporting.sortArray(completeList);
+
+		EntryObject[] topFive = Reporting.getTopFive(completeList);
+    displayFiveWords(topFive, topFiveWordLabels);
+		EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
+
+		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(outputFileLocation);
   }
 
   private void displayFiveWords (EntryObject[]wordList){
-    
+
   }
 
   @Override
