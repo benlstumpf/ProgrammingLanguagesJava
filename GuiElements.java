@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-class GuiElements extends JFrame {
+class GuiElements extends JFrame implements ActionListener {
 
   private int windowSizeHorisontal = 650;
   private int windowSizeVertical = 600;
@@ -91,17 +91,17 @@ class GuiElements extends JFrame {
   }
 
   private void countButtonHasBeenPushed(){
-    
+
   }
 
   @Override
   public void actionPerformed( ActionEvent e) {
       System.out.println("The action event is " + e);
       if( e.getActionCommand().equals("Pick Input File Location")) {
-          this.fileButtonHasBeenPushed();
+        inputFileLocation = this.fileButtonHasBeenPushed();
       }
       else if ( e.getActionCommand().equals("Pick Output File Location")) {
-          this.fileButtonHasBeenPushed();
+          outputFileLocation = this.fileButtonHasBeenPushed();
       }
       else if ( e.getActionCommand().equals("Count Words")) {
           this.fileButtonHasBeenPushed();
