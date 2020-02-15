@@ -30,14 +30,14 @@ public class Reporting {
    * @param array  [description]
    * @param writer [description]
    */
-  public static void arrayToFile (EntryObject[] array, BufferedWriter writer){
+  public static void arrayToFile (EntryObject[] array, BufferedWriter fileWriter){
     try{
       for (int i = 0; i < array.length; i++){
-        FileHandler.printRecord(writer, array[i]);
+        FileHandler.printRecord(fileWriter, array[i]);
       }
     }
     catch(FileNotFoundException e){
-      
+
     }
 
   }
