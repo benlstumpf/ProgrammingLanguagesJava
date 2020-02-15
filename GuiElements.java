@@ -45,6 +45,9 @@ class GuiElements extends JFrame {
   private String inputFileLocation = "";
   private String outputFileLocation = "";
 
+  //TODO place this button
+  private JButton countWordsButton = new JButton("Count Words");
+
   public GuiElements() {
       this.setTitle("Word Counting Application");
       this.setBounds(200,300,windowSizeHorisontal,windowSizeVertical);
@@ -89,10 +92,13 @@ class GuiElements extends JFrame {
   @Override
   public void actionPerformed( ActionEvent e) {
       System.out.println("The action event is " + e);
-      if( e.getActionCommand().equals("Convert")) {
+      if( e.getActionCommand().equals("Pick Input File Location")) {
           this.fileButtonHasBeenPushed();
       }
-      else if ( e.getActionCommand().equals("Which File?")) {
+      else if ( e.getActionCommand().equals("Pick Output File Location")) {
+          this.fileButtonHasBeenPushed();
+      }
+      else if ( e.getActionCommand().equals("Count Words")) {
           this.fileButtonHasBeenPushed();
       }
 
