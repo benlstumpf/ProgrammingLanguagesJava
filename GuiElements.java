@@ -101,7 +101,7 @@ class GuiElements extends JFrame implements ActionListener {
         inputFileLocation = this.fileButtonHasBeenPushed();
       }
       else if ( e.getActionCommand().equals("Pick Output File Location")) {
-          outputFileLocation = this.fileButtonHasBeenPushed();
+        outputFileLocation = this.fileButtonHasBeenPushed();
       }
       else if ( e.getActionCommand().equals("Count Words")) {
           this.fileButtonHasBeenPushed();
