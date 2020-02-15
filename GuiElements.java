@@ -94,6 +94,10 @@ class GuiElements extends JFrame implements ActionListener {
 
   }
 
+  private void displayFiveWords (EntryObject[]wordList){
+    
+  }
+
   @Override
   public void actionPerformed( ActionEvent e) {
       System.out.println("The action event is " + e);
