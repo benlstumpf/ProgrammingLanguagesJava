@@ -31,9 +31,15 @@ public class Reporting {
    * @param writer [description]
    */
   public static void arrayToFile (EntryObject[] array, BufferedWriter writer){
-    for (int i = 0; i < array.length; i++){
-      FileHandler.printRecord(writer, array[i]);
+    try{
+      for (int i = 0; i < array.length; i++){
+        FileHandler.printRecord(writer, array[i]);
+      }
     }
+    catch(FileNotFoundException e){
+      
+    }
+
   }
     /**
    * [sortArray description]
