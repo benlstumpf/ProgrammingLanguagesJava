@@ -22,7 +22,10 @@ class GuiElements extends JFrame implements ActionListener {
   private int fileChooserButtonDistanceFromLeftEdge = 10;
   private int fileLocationFieldLength = 400;
   private int fileChooseInputElementsDistanceFromTopEdge = 30;
-
+  private int leftSideColumnCenter = (windowSizeHorisontal/4);
+  private int rightSideColumnCenter = (windowSizeHorisontal/4) + (windowSizeHorisontal/2);
+  private int rightSideColumnLeftStart = (windowSizeHorisontal/2) + 5; // 5 for half the gap of 10
+  private int columnWidth = ;
 
   //TODO document what this equation means and where the math came from
   private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
@@ -33,9 +36,9 @@ class GuiElements extends JFrame implements ActionListener {
   private int wordCountLabelLength = 130;
   //TODO document what this equation means and where the math came from
   private int totalWordCountReportLabelVerticalStart = 60 + defaultTextSpaceHieght + fileChooseOutputElementsDistanceFromTopEdge;
-  private int totalWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) - (wordCountLabelLength/2); //left center - half label size
+  private int totalWordCountReportLabelHorizontalStart = leftSideColumnCenter - (wordCountLabelLength/2); //left side center - half label size
   //TODO document what this equation means and where the math came from
-  private int totalUniqueWordCountReportLabelHorizontalStart = (windowSizeHorisontal/4) + (windowSizeHorisontal/2) - (wordCountLabelLength/2);
+  private int totalUniqueWordCountReportLabelHorizontalStart = rightSideColumnCenter - (wordCountLabelLength/2);
 
 
   private JButton inputFileChooserButton = new JButton("Pick Input File Location");
@@ -44,6 +47,7 @@ class GuiElements extends JFrame implements ActionListener {
   private JTextField outputFileLocationField = new JTextField(40);
 
   private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
+
   private JLabel uniqueWordCountLabel = new JLabel( "Unique Word Count:");
 
   private String inputFileLocation = "";
@@ -51,6 +55,9 @@ class GuiElements extends JFrame implements ActionListener {
 
   private JTextField[] topFiveWordLabels = new JTextField[5];
   private JTextField[] bottomFiveWordLabels = new JTextField[5];
+
+  //TODO Place label
+  private JTextField statusLabel
 
   //TODO place this button
   private JButton countWordsButton = new JButton("Count Words");
@@ -109,14 +116,16 @@ class GuiElements extends JFrame implements ActionListener {
 
 		Reporting.sortArray(completeList);
 
+
 		EntryObject[] topFive = Reporting.getTopFive(completeList);
     displayFiveWords(topFive, topFiveWordLabels);
 		EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
+    displayFiveWords(bottomFive, bottomFiveWordLabels);
 
 		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(outputFileLocation);
   }
 
-  private void displayFiveWords (EntryObject[]wordList){
+  private void displayFiveWords (EntryObject[] sourceWordList, JTextField[] displayWordList){
 
   }
 
