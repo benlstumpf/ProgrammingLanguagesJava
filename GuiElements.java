@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.HashMap;
+import java.util.Scanner;
 
 class GuiElements extends JFrame implements ActionListener {
 
@@ -43,8 +45,8 @@ class GuiElements extends JFrame implements ActionListener {
 
   private JButton inputFileChooserButton = new JButton("Pick Input File Location");
   private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
-  private JTextField inputFileLocationField = new JTextField(40);
-  private JTextField outputFileLocationField = new JTextField(40);
+  private JLabel inputFileLocationField = new JLabel();
+  private JLabel outputFileLocationField = new JLabel();
 
   private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
 
@@ -53,8 +55,8 @@ class GuiElements extends JFrame implements ActionListener {
   private String inputFileLocation = "";
   private String outputFileLocation = "";
 
-  private JTextField[] topFiveWordLabels = new JTextField[5];
-  private JTextField[] bottomFiveWordLabels = new JTextField[5];
+  private JLabel[] topFiveWordLabels = new JLabel[5];
+  private JLabel[] bottomFiveWordLabels = new JLabel[5];
 
   //TODO Place label, this is for feed back to the user
   private JTextField statusLabel;
@@ -88,11 +90,15 @@ class GuiElements extends JFrame implements ActionListener {
       this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( uniqueWordCountLabel);
 
-      for(int i = topFiveWordLabels.length; i > 0; i--){
+      for(int i = topFiveWordLabels.length-1; i >= 0; i--){
         int rowVerticalPlacement = windowSizeVertical - distanceBetweenInputAndOutputVerticaly - (distanceBetweenInputAndOutputVerticaly * defaultTextSpaceHieght * (topFiveWordLabels.length - i));
+
+        topFiveWordLabels[i] = new JLabel();
 
         this.topFiveWordLabels[i].setBounds(bufferDistanceFromLeftEdge,rowVerticalPlacement,columnWidth,defaultTextSpaceHieght);
         this.getContentPane().add(topFiveWordLabels[i]);
+
+        bottomFiveWordLabels[i] = new JLabel();
 
         this.bottomFiveWordLabels[i].setBounds(rightSideColumnLeftStart,rowVerticalPlacement,columnWidth,defaultTextSpaceHieght);
         this.getContentPane().add(bottomFiveWordLabels[i]);
@@ -132,12 +138,12 @@ class GuiElements extends JFrame implements ActionListener {
 		EntryObject[] bottomFive = Reporting.getBottomFive(completeList);
     displayFiveWords(bottomFive, bottomFiveWordLabels);
 
-		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(outputFileLocation);
+		Reporting.arrayToFile(completeList, FileHandler.getBufferWriter(outputFileLocation));
   }
 
-  private void displayFiveWords (EntryObject[] sourceWordList, JTextField[] displayWordList){
+  private void displayFiveWords (EntryObject[] sourceWordList, JLabel[] displayWordList){
     for (int i = 0; i < sourceWordList.length; i++){
-      displayWordList[i] = sourceWordList[i].getKey() + sourceWordList[i].getValue();
+      displayWordList[i].setText(sourceWordList[i].getKey().toString() + sourceWordList[i].getValue());
     }
   }
 
@@ -146,9 +152,12 @@ class GuiElements extends JFrame implements ActionListener {
       System.out.println("The action event is " + e);
       if( e.getActionCommand().equals("Pick Input File Location")) {
         inputFileLocation = this.fileButtonHasBeenPushed();
+        inputFileLocationField.setText(inputFileLocation);
       }
       else if ( e.getActionCommand().equals("Pick Output File Location")) {
         outputFileLocation = this.fileButtonHasBeenPushed();
+        outputFileLocationField.setText(outputFileLocation);
+
       }
       else if ( e.getActionCommand().equals("Count Words")) {
           this.fileButtonHasBeenPushed();

@@ -1,5 +1,6 @@
 import java.io.BufferedWriter;
 import java.util.HashMap;
+import java.io.FileNotFoundException;
 
 public class Reporting {
   /**
@@ -31,14 +32,9 @@ public class Reporting {
    * @param writer [description]
    */
   public static void arrayToFile (EntryObject[] array, BufferedWriter fileWriter){
-    try{
-      for (int i = 0; i < array.length; i++){
+    for (int i = 0; i < array.length; i++){
         FileHandler.printRecord(fileWriter, array[i]);
       }
-    }
-    catch(FileNotFoundException e){
-
-    }
 
   }
     /**

@@ -15,13 +15,13 @@ public class FileHandler{
    */
   public static Scanner getScanner(String filePath){
 	  Scanner scanner = null;
-	  try{
-      File file = new File(filePath);
-     scanner = new Scanner(file);
-    }
-    catch (FileNotFoundException e) {
-      
-    }
+    File file = new File(filePath);
+    try {
+		scanner = new Scanner(file);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     return scanner;
   }
   /**
