@@ -29,6 +29,8 @@ class GuiElements extends JFrame implements ActionListener {
   private int rightSideColumnLeftStart = (windowSizeHorisontal/2) + 5; // 5 for half the gap of 10
   private int columnWidth = (windowSizeHorisontal/2) - 15; //15 is 10 for the edge buffer and half of the middle buffer
 
+  private int centerOfWindow = windowSizeHorisontal/2;
+
   //TODO document what this equation means and where the math came from
   private int fileChooserFieldDistanceFromLeftEdge = 10 + bufferDistanceFromLeftEdge + fileLocationButtonLength;
   //TODO document what this equation means and where the math came from
@@ -44,21 +46,21 @@ class GuiElements extends JFrame implements ActionListener {
 
 
   private JButton inputFileChooserButton = new JButton("Pick Input File Location");
-  private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
+  //private JButton outputFileLocationChooserButton = new JButton("Pick Output File Location");
   private JLabel inputFileLocationField = new JLabel();
-  private JLabel outputFileLocationField = new JLabel();
+  //private JLabel outputFileLocationField = new JLabel();
 
   private JLabel totalWordCountlabel = new JLabel( "Total Word Count:");
 
   private JLabel uniqueWordCountLabel = new JLabel( "Unique Word Count:");
 
   private String inputFileLocation = "";
-  private String outputFileLocation = "";
+  private String outputFileLocation = "outputWordCount.txt";
 
   private JLabel[] topFiveWordLabels = new JLabel[5];
   private JLabel[] bottomFiveWordLabels = new JLabel[5];
 
-  //TODO Place label, this is for feed back to the user
+  //TODO Place and implement update to label, this is for feed back to the user
   private JTextField statusLabel;
 
   //TODO place this button
@@ -76,19 +78,23 @@ class GuiElements extends JFrame implements ActionListener {
 
       this.inputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationFieldLength,defaultTextSpaceHieght);
       this.getContentPane().add(inputFileLocationField);
-
+/*
       this.outputFileLocationChooserButton.setBounds(bufferDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
       this.getContentPane().add(outputFileLocationChooserButton);
       this.outputFileLocationChooserButton.addActionListener(this);
 
       this.outputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationFieldLength,defaultTextSpaceHieght);
       this.getContentPane().add(outputFileLocationField);
-
+*/
       this.totalWordCountlabel.setBounds(totalWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( totalWordCountlabel);
 
       this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( uniqueWordCountLabel);
+
+      this.countWordsButton.setBounds(centerOfWindow, windowSizeVertical - 40, 100, 30);
+      this.getContentPane().add( countWordsButton);
+      this.countWordsButton.addActionListener( this);
 
       for(int i = topFiveWordLabels.length-1; i >= 0; i--){
         int rowVerticalPlacement = windowSizeVertical - distanceBetweenInputAndOutputVerticaly - (distanceBetweenInputAndOutputVerticaly * defaultTextSpaceHieght * (topFiveWordLabels.length - i));
@@ -154,11 +160,13 @@ class GuiElements extends JFrame implements ActionListener {
         inputFileLocation = this.fileButtonHasBeenPushed();
         inputFileLocationField.setText(inputFileLocation);
       }
+      /*
       else if ( e.getActionCommand().equals("Pick Output File Location")) {
         outputFileLocation = this.fileButtonHasBeenPushed();
         outputFileLocationField.setText(outputFileLocation);
 
       }
+      */
       else if ( e.getActionCommand().equals("Count Words")) {
           this.fileButtonHasBeenPushed();
       }
