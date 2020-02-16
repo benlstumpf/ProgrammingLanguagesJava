@@ -20,7 +20,7 @@ public class FileHandler{
      scanner = new Scanner(file);
     }
     catch (FileNotFoundException e) {
-      e.printStackTrace();
+      
     }
     return scanner;
   }
