@@ -19,16 +19,16 @@ class GuiElements extends JFrame implements ActionListener {
   private int distanceBetweenInputAndOutputVerticaly = 10;
   private int defaultTextSpaceHieght = 30;
   private int fileLocationButtonLength = 200;
-  private int fileChooserButtonDistanceFromLeftEdge = 10;
+  private int bufferDistanceFromLeftEdge = 10;
   private int fileLocationFieldLength = 400;
   private int fileChooseInputElementsDistanceFromTopEdge = 30;
   private int leftSideColumnCenter = (windowSizeHorisontal/4);
   private int rightSideColumnCenter = (windowSizeHorisontal/4) + (windowSizeHorisontal/2);
   private int rightSideColumnLeftStart = (windowSizeHorisontal/2) + 5; // 5 for half the gap of 10
-  private int columnWidth = ;
+  private int columnWidth = (windowSizeHorisontal/2) - 15; //15 is 10 for the edge buffer and half of the middle buffer
 
   //TODO document what this equation means and where the math came from
-  private int fileChooserFieldDistanceFromLeftEdge = 10 + fileChooserButtonDistanceFromLeftEdge + fileLocationButtonLength;
+  private int fileChooserFieldDistanceFromLeftEdge = 10 + bufferDistanceFromLeftEdge + fileLocationButtonLength;
   //TODO document what this equation means and where the math came from
   private int fileChooseOutputElementsDistanceFromTopEdge = distanceBetweenInputAndOutputVerticaly + fileChooseInputElementsDistanceFromTopEdge + defaultTextSpaceHieght;
 
@@ -56,8 +56,8 @@ class GuiElements extends JFrame implements ActionListener {
   private JTextField[] topFiveWordLabels = new JTextField[5];
   private JTextField[] bottomFiveWordLabels = new JTextField[5];
 
-  //TODO Place label
-  private JTextField statusLabel
+  //TODO Place label, this is for feed back to the user
+  private JTextField statusLabel;
 
   //TODO place this button
   private JButton countWordsButton = new JButton("Count Words");
@@ -68,14 +68,14 @@ class GuiElements extends JFrame implements ActionListener {
       this.getContentPane().setLayout(null);
       this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
 
-      this.inputFileChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
+      this.inputFileChooserButton.setBounds(bufferDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
       this.getContentPane().add(inputFileChooserButton);
       this.inputFileChooserButton.addActionListener(this);
 
       this.inputFileLocationField.setBounds(fileChooserFieldDistanceFromLeftEdge,fileChooseInputElementsDistanceFromTopEdge,fileLocationFieldLength,defaultTextSpaceHieght);
       this.getContentPane().add(inputFileLocationField);
 
-      this.outputFileLocationChooserButton.setBounds(fileChooserButtonDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
+      this.outputFileLocationChooserButton.setBounds(bufferDistanceFromLeftEdge,fileChooseOutputElementsDistanceFromTopEdge,fileLocationButtonLength,defaultTextSpaceHieght);
       this.getContentPane().add(outputFileLocationChooserButton);
       this.outputFileLocationChooserButton.addActionListener(this);
 
@@ -88,6 +88,16 @@ class GuiElements extends JFrame implements ActionListener {
       this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( uniqueWordCountLabel);
 
+      for(int i = topFiveWordLabels.length; i > 0; i--){
+        int rowVerticalPlacement = windowSizeVertical - distanceBetweenInputAndOutputVerticaly - (distanceBetweenInputAndOutputVerticaly * defaultTextSpaceHieght * (topFiveWordLabels.length - i));
+
+        this.topFiveWordLabels[i].setBounds(bufferDistanceFromLeftEdge,rowVerticalPlacement,columnWidth,defaultTextSpaceHieght);
+        this.getContentPane().add(topFiveWordLabels[i]);
+
+        this.bottomFiveWordLabels[i].setBounds(rightSideColumnLeftStart,rowVerticalPlacement,columnWidth,defaultTextSpaceHieght);
+        this.getContentPane().add(bottomFiveWordLabels[i]);
+
+      }
 
   }
   private String fileButtonHasBeenPushed() {
