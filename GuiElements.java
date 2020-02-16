@@ -126,7 +126,9 @@ class GuiElements extends JFrame implements ActionListener {
   }
 
   private void displayFiveWords (EntryObject[] sourceWordList, JTextField[] displayWordList){
-
+    for (int i = 0; i < sourceWordList.length; i++){
+      displayWordList[i] = sourceWordList[i].getKey() + sourceWordList[i].getValue();
+    }
   }
 
   @Override
