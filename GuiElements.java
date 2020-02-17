@@ -92,12 +92,17 @@ class GuiElements extends JFrame implements ActionListener {
       this.uniqueWordCountLabel.setBounds(totalUniqueWordCountReportLabelHorizontalStart,totalWordCountReportLabelVerticalStart,wordCountLabelLength,defaultTextSpaceHieght);
       this.getContentPane().add( uniqueWordCountLabel);
 
-      this.countWordsButton.setBounds(centerOfWindow, windowSizeVertical - 40, 100, 30);
+      this.countWordsButton.setBounds(centerOfWindow, windowSizeVertical - 60, 100, 30);
       this.getContentPane().add( countWordsButton);
       this.countWordsButton.addActionListener( this);
 
       for(int i = topFiveWordLabels.length-1; i >= 0; i--){
-        int rowVerticalPlacement = windowSizeVertical - distanceBetweenInputAndOutputVerticaly - (distanceBetweenInputAndOutputVerticaly * defaultTextSpaceHieght * (topFiveWordLabels.length - i));
+        /*
+        height of window
+        buffer
+        ()
+         */
+        int rowVerticalPlacement = windowSizeVertical - 80 - (defaultTextSpaceHieght * ((topFiveWordLabels.length-1) - i)+(distanceBetweenInputAndOutputVerticaly*(topFiveWordLabels.length-1) - i));
 
         topFiveWordLabels[i] = new JLabel();
 
@@ -155,7 +160,6 @@ class GuiElements extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed( ActionEvent e) {
-      System.out.println("The action event is " + e);
       if( e.getActionCommand().equals("Pick Input File Location")) {
         inputFileLocation = this.fileButtonHasBeenPushed();
         inputFileLocationField.setText(inputFileLocation);
@@ -168,7 +172,8 @@ class GuiElements extends JFrame implements ActionListener {
       }
       */
       else if ( e.getActionCommand().equals("Count Words")) {
-          this.fileButtonHasBeenPushed();
+        System.out.println("The action event is " + e);
+          this.countButtonHasBeenPushed();
       }
 
   }
